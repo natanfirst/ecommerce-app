@@ -12,10 +12,17 @@ import {
   PercentIcon,
   ShoppingCartIcon,
 } from "lucide-react";
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTrigger,
+} from "./sheet";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 import { Separator } from "./separator";
+import Link from "next/link";
 
 const Header = () => {
   const { status, data } = useSession();
@@ -37,23 +44,24 @@ const Header = () => {
           </Button>
         </SheetTrigger>
         <SheetContent side="left">
-          <SheetHeader>
-            Menu
-          </SheetHeader>
-            <div className="flex items-center gap-x-3 my-4">
+          <SheetHeader>Menu</SheetHeader>
+          <div className="my-4 flex items-center gap-x-3">
             {status === "authenticated" && data?.user && (
               <Avatar>
-                <AvatarImage src={data?.user?.image || "https://github.com/shadcn.png"} />
-                <AvatarFallback>{data?.user?.name?.[0]?.toUpperCase()}</AvatarFallback>
+                <AvatarImage
+                  src={data?.user?.image || "https://github.com/shadcn.png"}
+                />
+                <AvatarFallback>
+                  {data?.user?.name?.[0]?.toUpperCase()}
+                </AvatarFallback>
               </Avatar>
             )}
-            <div  className="flex flex-col">
-            <p className="capitalize font-medium">{data?.user?.name}</p>
-            <p className="text-sm text-opacity-75">Boas compras</p>
+            <div className="flex flex-col">
+              <p className="font-medium capitalize">{data?.user?.name}</p>
+              <p className="text-sm text-opacity-75">Boas compras</p>
             </div>
-     
-            </div>
-        
+          </div>
+
           <Separator />
           <div className="mt-2 flex flex-col gap-1">
             {status !== "authenticated" ? (
@@ -75,14 +83,18 @@ const Header = () => {
                 Fazer logout
               </Button>
             )}
+            <SheetClose asChild>
+              <Link href="/">
+                <Button
+                  variant="outline"
+                  className="mt-5 w-full justify-start gap-3"
+                >
+                  <HomeIcon size={16} />
+                  Inicio
+                </Button>
+              </Link>
+            </SheetClose>
 
-            <Button
-              variant="outline"
-              className="mt-5 w-full justify-start gap-3"
-            >
-              <HomeIcon size={16} />
-              Inicio
-            </Button>
             <Button
               variant="outline"
               className="mt-5 w-full justify-start gap-3"
@@ -90,13 +102,17 @@ const Header = () => {
               <PercentIcon size={16} />
               Ofertas
             </Button>
-            <Button
-              variant="outline"
-              className="mt-5 w-full justify-start gap-3"
-            >
-              <ListOrderedIcon size={16} />
-              Catalogo
-            </Button>
+            <SheetClose asChild>
+              <Link href="/catalog">
+                <Button
+                  variant="outline"
+                  className="mt-5 w-full justify-start gap-3"
+                >
+                  <ListOrderedIcon size={16} />
+                  Catalogo
+                </Button>
+              </Link>
+            </SheetClose>
           </div>
         </SheetContent>
       </Sheet>
