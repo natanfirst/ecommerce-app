@@ -49,7 +49,7 @@ const Header = () => {
             )}
             <div  className="flex flex-col">
             <p className="capitalize font-medium">{data?.user?.name}</p>
-            <p className="capitalize text-sm text-opacity-75">{data?.user?.name}</p>
+            <p className="text-sm text-opacity-75">Boas compras</p>
             </div>
      
             </div>
