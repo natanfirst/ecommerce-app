@@ -14,11 +14,11 @@ export const computeProductTotalPrice = (
     };
   }
 
-  const totalPrice =
+  const totalDiscount =
     Number(product.base_price) * (product.discount_percent / 100);
 
   return {
     ...product,
-    total_price: totalPrice,
+    total_price: Number(product.base_price) - totalDiscount,
   };
 };
