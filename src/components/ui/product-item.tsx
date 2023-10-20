@@ -3,6 +3,7 @@ import { ProductsWithTotalPrice } from "@/app/helpers/product";
 import { Product } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
+import DiscountBadge from "./discount-badge";
 // import DiscountBadge from "./discount-badge";
 
 interface ProductItemProps {
@@ -26,11 +27,11 @@ const ProductItem = ({ product }: ProductItemProps) => {
             alt={product.name}
           />
 
-          {/* {product.discountPercentage > 0 && (
+          {product.discount_percent > 0 && (
             <DiscountBadge className="absolute left-3 top-3">
-              {product.discountPercentage}
+              {product.discount_percent}
             </DiscountBadge>
-          )} */}
+          )}
         </div>
 
         <div className="flex flex-col gap-1">
