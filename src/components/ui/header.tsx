@@ -122,7 +122,17 @@ const Header = () => {
           <span className="text-primary">Ecommerce</span> App
         </h1>
       </Link>
-      <Cart />
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button size="icon" variant="outline">
+            <ShoppingCartIcon />
+          </Button>
+        </SheetTrigger>
+
+        <SheetContent className="w-[350px]">
+          <Cart />
+        </SheetContent>
+      </Sheet>
     </Card>
   );
 };
