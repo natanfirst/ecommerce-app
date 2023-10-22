@@ -23,6 +23,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 import { Separator } from "./separator";
 import Link from "next/link";
+import Cart from "./cart";
 
 const Header = () => {
   const { status, data } = useSession();
@@ -121,10 +122,7 @@ const Header = () => {
           <span className="text-primary">Ecommerce</span> App
         </h1>
       </Link>
-
-      <Button variant="outline" size="icon">
-        <ShoppingCartIcon />
-      </Button>
+      <Cart />
     </Card>
   );
 };
