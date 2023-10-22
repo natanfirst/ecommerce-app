@@ -40,7 +40,7 @@ const ProductDetailPage = async ({
 
       <div>
         <div>
-          <SectionTitle>Produtos Recomendados</SectionTitle>
+          <SectionTitle title="Produtos Recomendados" />
           <ProductList products={product.category.products} />
         </div>
       </div>

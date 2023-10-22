@@ -116,10 +116,12 @@ const Header = () => {
           </div>
         </SheetContent>
       </Sheet>
+      <Link href="/">
+        <h1 className="text-lg font-semibold">
+          <span className="text-primary">Ecommerce</span> App
+        </h1>
+      </Link>
 
-      <h1 className="text-lg font-semibold">
-        <span className="text-primary">Ecommerce</span> App
-      </h1>
       <Button variant="outline" size="icon">
         <ShoppingCartIcon />
       </Button>
