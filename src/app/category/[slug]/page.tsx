@@ -1,4 +1,4 @@
-import { computeProductTotalPrice } from "@/app/helpers/product";
+import { computeProductTotalPrice } from "@/helpers/product";
 import { Badge } from "@/components/ui/badge";
 import ProductItem from "@/components/ui/product-item";
 import { CATEGORY_ICON } from "@/constants/category-icon";

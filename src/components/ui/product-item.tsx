@@ -1,5 +1,5 @@
 // import { ProductWithTotalPrice } from "@/helpers/product";
-import { ProductsWithTotalPrice } from "@/app/helpers/product";
+import { ProductsWithTotalPrice } from "@/helpers/product";
 import { Product } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";

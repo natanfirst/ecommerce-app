@@ -9,6 +9,7 @@ import {
   SpeakerIcon,
   SquareIcon,
 } from "lucide-react";
+import Link from "next/link";
 
 interface CategoryItemProps {
   category: Category;
@@ -43,7 +44,9 @@ const Categories = async () => {
   return (
     <div className="grid grid-cols-2 gap-x-4 gap-y-2">
       {categories.map((category) => (
-        <CategoryItem key={category.id} category={category} />
+        <Link key={category.id} href={`/category/${category.slug}`}>
+          <CategoryItem category={category} />
+        </Link>
       ))}
     </div>
   );
