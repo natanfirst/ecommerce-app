@@ -28,7 +28,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
   };
 
   return (
-    <div className="flex flex-col px-5">
+    <div className="flex flex-col px-5 lg:p-10 lg:justify-between h-full">
       <h2 className="text-lg">{product.name}</h2>
 
       <div className="flex items-center gap-2">

@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import ProductItem from "@/components/ui/product-item";
 import { CATEGORY_ICON } from "@/constants/category-icon";
 import { prismaClient } from "@/lib/prisma";
+import Container from "@/components/ui/container";
 
 const CategoryProducts = async ({ params }: any) => {
   const category = await prismaClient.category.findFirst({
@@ -19,7 +20,7 @@ const CategoryProducts = async ({ params }: any) => {
   }
 
   return (
-    <div className="flex flex-col gap-8 p-5">
+    <Container className="flex flex-col gap-8 p-5">
       <Badge
         className="w-fit gap-1 border-2 border-primary px-3 py-[0.375rem] text-base uppercase"
         variant="outline"
@@ -36,7 +37,7 @@ const CategoryProducts = async ({ params }: any) => {
           />
         ))}
       </div>
-    </div>
+    </Container>
   );
 };
 
